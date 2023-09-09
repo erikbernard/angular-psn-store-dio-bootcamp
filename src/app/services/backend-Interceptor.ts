@@ -1,3 +1,4 @@
+import { Data } from './data';
 import { Injectable, Injector } from "@angular/core";
 import {
 	HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse
@@ -6,126 +7,12 @@ import { Observable, of } from "rxjs";
 const URl = window.location.href;
 @Injectable()
 export class BackendInterceptor implements HttpInterceptor {
-	games = [
-		{
-			gameCover: "cover01.webp",
-			gameTitle: "Sea of Stars Demo",
-			gameLabel: "PS5 - PS4",
-			gameType: "Demo",
-			gamePlatformTag: "Demo",
-			gamePrice: "Gratuito",
-		}, {
-			gameCover: "cover02.webp",
-			gameTitle: "Hogwarts Legacy ",
-			gameLabel: "PS5",
-			gameType: "Standard",
-			gamePlatformTag: "Standard",
-			gamePrice: "R$ 299,90",
-		}, {
-			gameCover: "cover03.webp",
-			gameTitle: "Born Of Bread Demo",
-			gameLabel: "PS5",
-			gameType: "Demo",
-			gamePlatformTag: "Demo",
-			gamePrice: "Gratuito",
-		}, {
-			gameCover: "cover04.webp",
-			gameTitle: "Tower of Fantasy",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 157,99",
-		}, {
-			gameCover: "cover05.webp",
-			gameTitle: "Fortnite",
-			gameLabel: "PS5",
-			gameType: "Standard",
-			gamePlatformTag: "Standard",
-			gamePrice: "Gratuito",
-		}, {
-			gameCover: "cover06.webp",
-			gameTitle: "ARMORED CORE™ VI FIRES OF RUBICON™",
-			gameLabel: "PS4 - PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 299,90",
-		}, {
-			gameCover: "cover07.webp",
-			gameTitle: "Mortal Kombat™ 1",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 469,99",
-		}, {
-			gameCover: "cover08.webp",
-			gameTitle: "Edição Standard do EA SPORTS FC™ 24",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 369,99",
-		}, {
-			gameCover: "cover09.webp",
-			gameTitle: "Edição Standard do EA SPORTS FC™ 24",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 369,99",
-		}, {
-			gameCover: "cover10.webp",
-			gameTitle: "Edição Standard do EA SPORTS FC™ 24",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 369,99",
-		}, {
-			gameCover: "cover11.webp",
-			gameTitle: "Edição Standard do EA SPORTS FC™ 24",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 369,99",
-		}, {
-			gameCover: "cover12.webp",
-			gameTitle: "Edição Standard do EA SPORTS FC™ 24",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 369,99",
-		}, {
-			gameCover: "cover13.webp",
-			gameTitle: "Edição Standard do EA SPORTS FC™ 24",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 369,99",
-		}, {
-			gameCover: "cover14.webp",
-			gameTitle: "Edição Standard do EA SPORTS FC™ 24",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 369,99",
-		}, {
-			gameCover: "cover15.webp",
-			gameTitle: "Edição Standard do EA SPORTS FC™ 24",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 369,99",
-		}, {
-			gameCover: "cover16.webp",
-			gameTitle: "Edição Standard do EA SPORTS FC™ 24",
-			gameLabel: "PS5",
-			gameType: "Pre venda",
-			gamePlatformTag: "Pre venda",
-			gamePrice: "R$ 369,99",
-		},
-	]
-	constructor(private injector: Injector) { }
+
+	constructor(private injector: Injector, private mockdata: Data) { }
 	intercept(request: HttpRequest<any>, next: HttpHandler):
 		Observable<HttpEvent<any>> {
 		if (request.method === "GET" && request.url === `${URl}/games`) {
-			return of(new HttpResponse({ status: 200, body: this.games }));
+			return of(new HttpResponse({ status: 200, body: this.mockdata.games }));
 		}
 		return next.handle(request)
 	}

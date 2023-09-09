@@ -13,6 +13,8 @@ import { CardDescriptionComponent } from './components/card/card-description/car
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductOptionComponent } from './components/product-option/product-option.component';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { Data } from './services/data';
+import { GameService } from './services/game.service';
 
 @NgModule({
 	declarations: [
@@ -32,6 +34,8 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 		AppRoutingModule
 	],
 	providers: [
+		Data,
+		GameService,
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: BackendInterceptor,

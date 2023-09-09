@@ -18,6 +18,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Framework Angular](https://github.com/angular/angular-cli)
 - [Typescript](https://www.typescriptlang.org/docs/)
 
+
+## ✅ Deploy
+
+- [GitHub Page Project Only](https://erikbernard.github.io/angular-psn-store-dio-bootcamp/)
+
 ## 🚀 Como executar
 
 

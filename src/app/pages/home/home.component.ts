@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/app/model/gameModel';
 import { BackendInterceptor } from 'src/app/services/backend-Interceptor';
+import { Data } from 'src/app/services/data';
 import { GameService } from 'src/app/services/game.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
 		"ps08",
 	]
 
-	constructor(private gameService: GameService, private mockData: BackendInterceptor) { }
+	constructor(private gameService: GameService, private mockData: Data) { }
 	listNewGames: Game[] = [];
 	listPreSale: Game[] = [];
 	listDemos: Game[] = [];
@@ -37,9 +38,8 @@ export class HomeComponent implements OnInit {
 				this.listNewGames = data;
 			},
 			error: error => {
-				console.error('There was an error!', error);
 				this.listNewGames = this.mockData.games;
-			},
+			}
 		})
 	}
 	getListPreSaleValue(): void {
@@ -48,9 +48,8 @@ export class HomeComponent implements OnInit {
 				this.listPreSale = data;
 			},
 			error: error => {
-				console.error('There was an error!', error);
 				this.listPreSale = this.mockData.games;
-			},
+			}
 		})
 	}
 	getListDemosValue(): void {
@@ -59,9 +58,8 @@ export class HomeComponent implements OnInit {
 				this.listDemos = data;
 			},
 			error: error => {
-				console.error('There was an error!', error);
 				this.listDemos = this.mockData.games;
-			},
+			}
 		})
 	}
 }

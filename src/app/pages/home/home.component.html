@@ -12,7 +12,7 @@
 	<div class="home__games">
 		<app-card *ngFor="let newgame of listNewGames" gameCover="{{'assets/cover/'+newgame.gameCover}}"
 			gameLabel="{{newgame.gameLabel}}" gameType="{{newgame.gameType}}" gamePrice="{{newgame.gamePrice}}"
-			gameTitle="{{newgame.gamePrice}}" gamePlatformTag="{{newgame.gamePlatformTag}}">
+			gameTitle="{{newgame.gameTitle}}" gamePlatformTag="{{newgame.gamePlatformTag}}">
 		</app-card>
 	</div>
 </section>
@@ -21,7 +21,7 @@
 	<div class="home__games">
 		<app-card *ngFor="let demo of listDemos" gameCover="{{'assets/cover/'+demo.gameCover}}"
 			gameLabel="{{demo.gameLabel}}" gameType="{{demo.gameType}}" gamePrice="{{demo.gamePrice}}"
-			gameTitle="{{demo.gamePrice}}" gamePlatformTag="{{demo.gamePlatformTag}}">
+			gameTitle="{{demo.gameTitle}}" gamePlatformTag="{{demo.gamePlatformTag}}">
 		</app-card>
 	</div>
 </section>

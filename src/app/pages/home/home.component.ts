@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
 			},
 			error: error => {
 				console.error('There was an error!', error);
-			}, complete: () => {
 				this.listNewGames = this.mockData.games;
 			},
 		})
@@ -50,7 +49,6 @@ export class HomeComponent implements OnInit {
 			},
 			error: error => {
 				console.error('There was an error!', error);
-			}, complete: () => {
 				this.listPreSale = this.mockData.games;
 			},
 		})
@@ -62,7 +60,6 @@ export class HomeComponent implements OnInit {
 			},
 			error: error => {
 				console.error('There was an error!', error);
-			}, complete: () => {
 				this.listDemos = this.mockData.games;
 			},
 		})

@@ -14,7 +14,7 @@ export class GameService {
 
 	constructor(private httpClient: HttpClient) { }
 	ngOnInit() {
-		this.httpClient.get(`https://erikbernard.github.io/angular-psn-store-dio-bootcamp/${this.path}`).subscribe(res => {
+		this.httpClient.get(`${URl}${this.path}`).subscribe(res => {
 			console.log(res);
 
 		});

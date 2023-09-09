@@ -118,13 +118,13 @@ const games = [
 		gamePrice: "R$ 369,99",
 	},
 ]
-
+const URl = window.location.href;
 @Injectable()
 export class BackendInterceptor implements HttpInterceptor {
 	constructor(private injector: Injector) { }
 	intercept(request: HttpRequest<any>, next: HttpHandler):
 		Observable<HttpEvent<any>> {
-		if (request.method === "GET" && request.url === "http://localhost:4200/games") {
+		if (request.method === "GET" && request.url === `${URl}/games`) {
 			return of(new HttpResponse({ status: 200, body: games }));
 		}
 		return next.handle(request)

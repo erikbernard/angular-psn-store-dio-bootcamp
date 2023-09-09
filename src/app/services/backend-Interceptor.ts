@@ -124,7 +124,7 @@ export class BackendInterceptor implements HttpInterceptor {
 	constructor(private injector: Injector) { }
 	intercept(request: HttpRequest<any>, next: HttpHandler):
 		Observable<HttpEvent<any>> {
-		if (request.method === "GET" && request.url === `${URl}/games`) {
+		if (request.method === "GET" && request.url === `https://erikbernard.github.io/angular-psn-store-dio-bootcamp/games`) {
 			return of(new HttpResponse({ status: 200, body: games }));
 		}
 		return next.handle(request)
